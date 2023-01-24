@@ -19,7 +19,7 @@ function App() {
           <Routes>
             <Route
               path='/movie'
-              element={<SingleMovie movie={moviedata[0]}/>}
+              element={<SingleMovie movie={moviedata.results[0]}/>}
               //movieID={:id} (This should NOT be done here and App.JS should be HEAVILY optimized. I.E. move the fetch requests into another component, but NOT IN APPJS)
             />
             <Route
