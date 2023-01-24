@@ -1,3 +1,62 @@
+.details-container {
+    display: flex;
+}
+
+.inline {
+    display: inline;
+    margin: 0px;
+}
+
+#single-movie-holder {
+    margin: 2em auto;
+    width: 50%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#movie-details {
+    background-color: #D68D97;
+    margin: 0px auto;
+    height: fit-content;
+    width: 100%;
+    border-top: black 5px solid;
+    border-bottom: black 5px solid;
+    z-index: 2;
+}
+
+.detail-block {
+    padding: 10px;
+}
+
+.detail-block > * {
+    color: black;
+}
+
+.top-border {
+    border-top: #F7C9C3 2px solid;
+}
+
+.movie-img-box {
+    width: 100%;
+    margin: 0px auto;
+}
+
+#detailed-card-img-holder {
+    width: 100%;
+}
+
+#single-movie-img {
+    width: 100%;
+    height: auto;
+}
+
+#company-logo-holder {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;
+}
 
 #company-logo-holder {
     display: grid;
