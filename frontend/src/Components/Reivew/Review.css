@@ -1,0 +1,33 @@
+.review {
+    margin: auto;
+    background-color: #D194D6;
+    color: black;
+    width: 60%;
+}
+
+.review > * {
+    padding: 20px;
+}
+
+.movie-header {
+    border-bottom: 3px black dotted;
+}
+
+.movie-header {
+    display: flex;
+    height: 150px;
+}
+
+.movie-header > * {
+    border: 1px black solid;
+}
+
+.movie-header > div {
+    flex: 1;
+}
+
+.user-pfp {
+    height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
