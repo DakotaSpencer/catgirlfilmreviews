@@ -3,3 +3,20 @@ header {
   height: 80px;
   text-align: center;
 }
+
+button {
+  background-color: rgba(244, 234, 241, .5);
+  border: 2px #D68D97 solid;
+  color: #D68D97;
+  padding: .5em;
+  text-align: center;
+  text-decoration: none;
+  margin: 0 .75em;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: #F4EAF1;
+}

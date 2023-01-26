@@ -3,6 +3,7 @@
     background-color: #D194D6;
     color: black;
     width: 60%;
+    border-radius: 30px;
 }
 
 .review > * {
@@ -15,11 +16,16 @@
 
 .movie-header {
     display: flex;
-    height: 150px;
+    height: 100px;
 }
 
-.movie-header > * {
-    border: 1px black solid;
+.review-title-box {
+    padding: 20px;
+}
+
+.review-title-box > * {
+    padding: 0px;
+    margin: 0px;
 }
 
 .movie-header > div {
@@ -30,4 +36,12 @@
     height: 100%;
     aspect-ratio: 1/1;
     object-fit: cover;
+    border-radius: 20px;
+}
+
+.helpful-box {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 20px;
 }

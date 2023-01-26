@@ -15,12 +15,16 @@ function Review({review}) {
             <div className='movie-header'>
                 <img className='user-pfp' src={user.pfp} />
                 <div className='review-title-box'>
-                    <h1>{review.title}</h1>
+                    <h2>{review.title}</h2>
                     {/* TODO redirect to user with id */}
                     <p><a>{user.username}</a></p>
                     <Hearts number={review.score} />
                 </div>
-                <div className='helpful-box'></div>
+                <div className='helpful-box'>
+                    {/* style to look like not garbage */}
+                    <code><button>{"(*^▽^*)"}</button></code><p>12</p>
+                    <code><button>{"╚(•⌂•)╝"}</button></code><p>5</p>
+                </div>
             </div>
             <div>
                 <p>{review.body}</p>
