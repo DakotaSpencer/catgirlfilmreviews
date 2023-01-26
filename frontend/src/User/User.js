@@ -35,8 +35,8 @@ const User = () => {
               </div>
             </div>
           </Col>
-          <Col xs={6} className='border'>2 of 3 (wider)</Col>
-          <Col xs={2} className='border'>3 of 3</Col>
+          <Col xs={6} className='border'>Reviews</Col>
+          <Col xs={3} className='border'>Top Movies</Col>
         </Row>
       </Container>
     </div>
