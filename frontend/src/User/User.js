@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import userdata from '../userdummydata.json'
 import './user.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import moviedata from '../moviedummydata.json'
+import MoviesList from '../MoviesList/MoviesList';
+import MovieComponent from '../MovieComponent/MovieComponent';
+
+
 
 const User = () => {
+  useEffect(()=>{
+    console.log(moviedata)
+  });
+
   return (
     <div>
       <Container>
@@ -36,7 +45,9 @@ const User = () => {
             </div>
           </Col>
           <Col xs={6} className='border'>Reviews</Col>
-          <Col xs={3} className='border'>Top Movies</Col>
+          <Col xs={3} className='border'>
+            <MoviesList moviedata={moviedata.results}/>
+          </Col>
         </Row>
       </Container>
     </div>
