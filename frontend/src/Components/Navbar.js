@@ -9,7 +9,8 @@ function Navbar({getRandomMovie}) {
     getRandomMovie = () => {
         let movieID = Math.ceil(Math.random()*999999);
         let movie = axios.get(`https://api.themoviedb.org/3/movie/${movieID}?api_key=96fdc416520d2dd5b75c1c82c854e506`)
-    
+
+        //AXIOS FAILS WITH 404 ERROR. UNSURE HOW TO FIX.
     }
 
     return (
@@ -21,10 +22,19 @@ function Navbar({getRandomMovie}) {
                 </Link>
             </div>
                 
-                
-                    
-                
             <button onClick={getRandomMovie}>Random</button>
+                <button>
+                    <Link to="/movie">
+                    Movies
+                    </Link>
+                </button>
+            
+                <button>
+                    <Link to="/user">
+                    User
+                    </Link>
+                </button>
+            
         </nav>
     )
 }
