@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useState } from 'react';
+import {Link} from 'react-router-dom'
 
 function Navbar({getRandomMovie}) {
     const [movie,setMove] = useState({})
@@ -12,12 +13,18 @@ function Navbar({getRandomMovie}) {
     }
 
     return (
-        <nav>
-            <header className="header">
-                <h1>Catgirl Film Reviews</h1>
-                <button onClick={getRandomMovie}>Random</button>
-            </header>
-            
+        <nav className='header'>
+            <div className='container'>
+                
+                <Link to="/">
+                        <h1>Catgirl Film Reviews</h1>
+                </Link>
+            </div>
+                
+                
+                    
+                
+            <button onClick={getRandomMovie}>Random</button>
         </nav>
     )
 }
