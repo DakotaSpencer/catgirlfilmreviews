@@ -13,7 +13,11 @@ function Navbar({getRandomMovie}) {
 
     return (
         <nav>
-            <button onClick={getRandomMovie}>Random</button>
+            <header className="header">
+                <h1>Catgirl Film Reviews</h1>
+                <button onClick={getRandomMovie}>Random</button>
+            </header>
+            
         </nav>
     )
 }
