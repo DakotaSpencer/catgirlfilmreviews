@@ -23,18 +23,17 @@ function Navbar({getRandomMovie}) {
             </div>
                 
             <button onClick={getRandomMovie}>Random</button>
+            
+            <Link to="/movie">
                 <button>
-                    <Link to="/movie">
                     Movies
-                    </Link>
                 </button>
-            
+            </Link>
+            <Link to="/user">
                 <button>
-                    <Link to="/user">
                     User
-                    </Link>
                 </button>
-            
+            </Link>
         </nav>
     )
 }
