@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { useState } from 'react';
 import {Link} from 'react-router-dom'
+import SearchIcon from '@mui/icons-material/Search';
+import './navbar.css'
 
 function Navbar({getRandomMovie}) {
     const [movie,setMove] = useState({})
@@ -14,15 +16,17 @@ function Navbar({getRandomMovie}) {
     }
 
     return (
-        <nav className='header'>
+        <nav className='header navbar'>
             <div className='container'>
                 
                 <Link to="/">
                         <h1>Catgirl Film Reviews</h1>
                 </Link>
-            </div>
-                
-            <button onClick={getRandomMovie}>Random</button>
+                <div id='searchBar'>
+                    <input></input>
+                    <SearchIcon fontSize="large" className=''/>
+                </div>
+                <button onClick={getRandomMovie}>Random</button>
             
             <Link to="/movie">
                 <button>
@@ -34,6 +38,7 @@ function Navbar({getRandomMovie}) {
                     User
                 </button>
             </Link>
+            </div>
         </nav>
     )
 }
