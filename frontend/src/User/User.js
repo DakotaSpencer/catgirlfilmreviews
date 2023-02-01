@@ -7,6 +7,7 @@ import Col from 'react-bootstrap/Col';
 import moviedata from '../moviedummydata.json'
 import MoviesList from '../MoviesList/MoviesList';
 import MovieComponent from '../MovieComponent/MovieComponent';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 
 
@@ -16,30 +17,25 @@ const User = () => {
   });
 
   return (
-    <div>
+    <div className='m-4'>
       <Container>
         <Row>
           <Col>
-            <div className='col-4 userBio'>
+            <div className='col-4 userBio text-center rounded'>
               <div className='detail-block'>
-                <h1>User Information</h1>
-              </div>
-              
-              <div className='detail-block'>
-                <h2>Username</h2>
-                <p>{userdata[0].username}</p>
+                <h2>User Information</h2>
               </div>
               <div className='detail-block'>
-                <h2>Profile picture</h2>
-                <img src={process.env.PUBLIC_URL + '/Images/picture.png'} style={{width:'150px'}}/>
-              </div>
+                <img src={process.env.PUBLIC_URL + '/Images/picture.png'} style={{width:'100px'}} className='rounded'/>
+                
+                  <p style={{fontSize:'18px'}} className='m-2'>{userdata[0].username}</p>
+                </div>
               <div className='detail-block'>
-                <h2>Location</h2>
-                <p>{userdata[0].location}</p>
+
+                <p> <LocationOnIcon/>{userdata[0].location}</p>
               </div>
 
               <div className='detail-block'>
-                <h2>Bio:</h2>
                 <p>{userdata[0].bio}</p>
               </div>
             </div>

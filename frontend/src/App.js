@@ -1,4 +1,5 @@
-import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
+//import {Navigate} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Navbar from './Components/Navbar';
@@ -6,6 +7,7 @@ import SingleMovie from './SingleMovie/SingleMovie';
 import User from './User/User';
 import SearchResults from './SearchResults/SearchResults';
 import moviedata from './moviedummydata.json'
+import Landing from './Landing/Landing';
 
 function App() {
 
@@ -15,6 +17,11 @@ function App() {
         <Navbar/>
         <div className='pages'>
           <Routes>
+          ` <Route
+              path='/'
+              element={<Landing/>}
+              //userID={:username} 
+            />
             <Route
               path='/movie'
               element={<SingleMovie movie={moviedata.results[0]}/>}
@@ -31,7 +38,7 @@ function App() {
               //userID={:userid} 
             />
           </Routes>
-          </div>
+        </div>
       </BrowserRouter>
       
     </div>
