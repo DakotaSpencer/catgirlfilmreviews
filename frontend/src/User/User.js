@@ -6,10 +6,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import moviedata from '../moviedummydata.json'
 import MoviesList from '../MoviesList/MoviesList';
-import MovieComponent from '../MovieComponent/MovieComponent';
+import reviews from "../../src/reviewdummydata.json"
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-
-
+import Review from '../Components/Reivew/Review'
 
 const User = () => {
   useEffect(()=>{
@@ -17,7 +16,7 @@ const User = () => {
   });
 
   return (
-    <div className='m-4'>
+    <div className='pagediv'>
       <Container>
         <Row>
           <Col>
@@ -39,9 +38,20 @@ const User = () => {
                 <p>{userdata[0].bio}</p>
               </div>
             </div>
+            <div className='col-4 userButton text-center rounded'>
+              <button>Edit User Information</button>
+            </div>
+            
           </Col>
-          <Col xs={6} className='border'>Reviews</Col>
-          <Col xs={3} className='border'>
+          <Col xs={6}>
+            <div className='reviewSection'>
+              {reviews.map(review => (
+                <Review review={review} />
+              ))}
+            </div>
+            
+          </Col>
+          <Col xs={3}>
             <MoviesList moviedata={moviedata.results}/>
           </Col>
         </Row>

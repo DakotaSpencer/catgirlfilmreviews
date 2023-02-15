@@ -5,6 +5,10 @@
   width: 100%;
 }
 
+.pagediv{
+  padding-top: 100px;
+}
+
 button {
   background-color: rgba(244, 234, 241, .5);
   border: 2px #D68D97 solid;

@@ -11,7 +11,7 @@ function SingleMovie({movie}) {
 
     if (movie?.id) {
         return (
-            <div>
+            <div className='pagediv'>
                 <div className='details-container'>
                     <div id="single-movie-holder">
                         <div className='movie-img-box'><img id='single-movie-img' src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} /></div>

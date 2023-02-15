@@ -3,13 +3,27 @@
     width: 100%;
 }
 
-.detail-block {
+.reviewSection{
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+}
+
+.userButton{
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* .detail-block {
     padding: 10px;
 }
 
 .detail-block > * {
     color: black;
-}
+} */
 
 .center {
     margin: 0 auto;

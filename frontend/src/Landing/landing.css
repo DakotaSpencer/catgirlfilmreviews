@@ -1,0 +1,40 @@
+.landingbgimage{
+  object-fit: cover;
+  width: 100%;
+  margin-top: 80px;
+  height: 350px;
+  z-index: -1;
+  aspect-ratio: 1/1;
+}
+
+.logotext{
+  margin-left: 30px;
+}
+
+.logodiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.landinglogoimg{
+  width: 150px;
+  aspect-ratio:1/1;
+}
+
+.landinglogo{
+  flex: 0 0 420px;
+  position: absolute;
+  padding-top: 30%;
+  margin-top: 20px;
+}
+
+.bg{
+  background-color: black;
+}
+
+.landingcontent{
+  z-index: 999;
+  /* background-color:aqua; */
+  position: absolute;
+}

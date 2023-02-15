@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import "./moviecomponent.css"
+import {Link} from 'react-router-dom'
 
 const MovieComponent = ({movie}) => {
     useEffect(() => {
@@ -8,14 +9,15 @@ const MovieComponent = ({movie}) => {
     })
     if (movie?.id) {
         return (
-            <div className=''>
+            <div className='movie-container'>
+                <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}/>
                 <div id="">
                     <div className=''>
-                        <img id='single-movie-img' src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} /></div>
-                    <div id="">
-                        <div className=''><h2>{movie.title}</h2></div>
-                        <div className=''><p>Released: {movie.release_date}</p></div>
+                        <Link to="/movie">
+                            <h1 style={{color:'black'}}>{movie.title}</h1>
+                        </Link>
                     </div>
+                    <div className=''><p>Released: {movie.release_date}</p></div>
                 </div>
             </div>
         )

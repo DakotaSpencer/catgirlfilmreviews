@@ -1,6 +1,8 @@
 import React from 'react'
 import Hearts from './Hearts/Hearts'
 import "./Review.css"
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import ThumbDownIcon from '@mui/icons-material/ThumbDown';
 
 function Review({review}) {
 
@@ -22,8 +24,8 @@ function Review({review}) {
                 </div>
                 <div className='helpful-box'>
                     {/* style to look like not garbage */}
-                    <code><button>{"(*^▽^*)"}</button></code><p>12</p>
-                    <code><button>{"╚(•⌂•)╝"}</button></code><p>5</p>
+                    <code><button><ThumbUpIcon/></button></code><p>12</p>
+                    <code><button><ThumbDownIcon/></button></code><p>5</p>
                 </div>
             </div>
             <div>
