@@ -14,7 +14,7 @@ const MovieComponent = ({movie}) => {
                 <div id="">
                     <div className=''>
                         <Link to="/movie">
-                            <h1 style={{color:'black'}}>{movie.title}</h1>
+                            <h3 style={{color:'black'}}>{movie.title}</h3>
                         </Link>
                     </div>
                     <div className=''><p>Released: {movie.release_date}</p></div>
