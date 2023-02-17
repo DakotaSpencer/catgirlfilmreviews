@@ -10,7 +10,7 @@
   }
   
   .flex-container > div {
-    border: 2px black solid;
+    border: 2px #D194D6 solid;
     border-radius: 5px;
     width: 450px;
     height: 200px;

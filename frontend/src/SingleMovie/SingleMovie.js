@@ -33,9 +33,14 @@ function SingleMovie({movie}) {
                         </div>
                     </div>
                 </div>
-                {reviews.map(review => (
-                    <Review review={review} />
-                ))}
+                
+                <div>
+                    <h1 className='reviewdiv'>Reviews:</h1>
+                    {reviews.map(review => (
+                        <Review review={review} />
+                    ))}
+                </div>
+                
             </div>
         )
     }

@@ -9,26 +9,33 @@ function Review({review}) {
     const user = {
         pfp: "https://townsquare.media/site/442/files/2018/11/shrek-reboot-oh-no.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89",
         id: 0,
-        username: "BunnyLover526"
+        username: "ShrekLover526"
     }
 
     return (
         <div className='review'>
-            <div className='movie-header'>
-                <img className='user-pfp' src={user.pfp} />
-                <div className='review-title-box'>
-                    <h2>{review.title}</h2>
+            <div className='review-header'>
                     {/* TODO redirect to user with id */}
-                    <p><a>{user.username}</a></p>
-                    <Hearts number={review.score} />
-                </div>
-                <div className='helpful-box'>
-                    {/* style to look like not garbage */}
-                    <code><button><ThumbUpIcon/></button></code><p>12</p>
-                    <code><button><ThumbDownIcon/></button></code><p>5</p>
-                </div>
+                    <div className='review-account'>
+                        <img className='user-pfp' src={user.pfp} />
+                        <div className='padded'>
+                            <h2>{review.title}</h2>
+                            <div className=''>
+                                <a>{user.username}</a>
+                                {/* <div></div> */}
+                                <Hearts number={review.score}/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='review-account'>
+                        {/* style to look like not garbage */}
+                        <code><button><ThumbUpIcon/></button></code><p>{review.thumbsup}</p>
+                        <code><button><ThumbDownIcon/></button></code><p>{review.thumbsdown}</p>
+                    </div>
+                    
+                
             </div>
-            <div>
+            <div className='review-body'>
                 <p>{review.body}</p>
             </div>
         </div>

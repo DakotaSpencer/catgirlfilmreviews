@@ -11,6 +11,12 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Review from '../Components/Reivew/Review'
 
 const User = () => {
+  const user = {
+    pfp: "https://townsquare.media/site/442/files/2018/11/shrek-reboot-oh-no.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89",
+    id: 0,
+    username: "ShrekLover526"
+}
+
   useEffect(()=>{
     console.log(moviedata)
   });
@@ -25,9 +31,9 @@ const User = () => {
                 <h2>User Information</h2>
               </div>
               <div className='detail-block'>
-                <img src={process.env.PUBLIC_URL + '/Images/picture.png'} style={{width:'100px'}} className='rounded'/>
+                <img src={user.pfp} style={{width:'100px', height:'100px'}} className='user-pfp'/>
                 
-                  <p style={{fontSize:'18px'}} className='m-2'>{userdata[0].username}</p>
+                  <p style={{fontSize:'18px'}} className='m-2'>{user.username}</p>
                 </div>
               <div className='detail-block'>
 

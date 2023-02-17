@@ -63,3 +63,12 @@
     gap: 5px;
     grid-template-columns: 1fr 1fr 1fr;
 }
+
+.pagediv{
+    margin: auto;
+}
+
+.reviewdiv{
+    margin: auto;
+    padding: 10px;
+}

@@ -12,6 +12,14 @@
     right: 0%;
 }
 
+.user-pfp {
+    height: 60px;
+    width: 60px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50px;
+}
+
 .userButton{
     width: 100%;
     margin-top: 20px;

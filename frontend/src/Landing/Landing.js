@@ -15,7 +15,7 @@ const Landing = () => {
           <img src={process.env.PUBLIC_URL + '/Images/moviebg_placeholder.png'} className="landingbgimage"/>
         </div>
       <div className='landingcontent'>
-        <h1 style={{marginTop: '50px', marginLeft: '70px', fontSize: '60px'}}>Movies</h1>
+        <h1 style={{marginTop: '50px', marginLeft: '70px', fontSize: '60px', color: '#D194D6'}}>Movies</h1>
         <MoviesList moviedata={moviedata.results}/>
       </div>
       
