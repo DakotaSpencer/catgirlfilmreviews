@@ -7,6 +7,9 @@
 
 .pagediv{
   padding-top: 100px;
+
+  /* IF YOU WANT THE BACKGROUND COLOR ON ALL PAGES TO BE WHITE, REMOVE THIS */
+  /* background-color: #040001; */
 }
 
 button {
