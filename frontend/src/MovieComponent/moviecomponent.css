@@ -1,6 +1,5 @@
 .movie-container{
     display: flex;
-    background-color: rgba(252, 240, 255, 0.558);
 }
 
 .movie-container > div{
@@ -15,4 +14,33 @@
     width: 120px;
     height: 180px;
     overflow: hidden;
+}
+
+.movie-container > h1, h2, h3, h4, h5, h6 {
+  color: #000;
+}
+
+.movielink {
+  text-decoration: none;
+}
+.movielink a {
+  font-weight: 200;
+  font-size: 14px;
+  text-decoration: none;
+  color: #D194D6;
+  text-decoration: underline 0.15em rgba(247, 188, 185, 0);
+  transition: text-decoration-color 300ms;
+}
+.movielink a:visited {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.movielink a:hover {
+  color:  rgb(219, 185, 247, 1);
+  text-decoration-color: rgb(219, 185, 247, 1);
+  text-decoration: underline;
+}
+.movielink a:active {
+  color: #D194D6;
 }

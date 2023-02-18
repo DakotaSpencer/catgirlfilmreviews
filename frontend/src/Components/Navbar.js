@@ -7,7 +7,7 @@ import './navbar.css'
 
 function Navbar({getRandomMovie}) {
     const [user, setUser] = useState(true)
-    const [movie,setMove] = useState({})
+    // const [movie,setMovie] = useState({})
 
     const handleClick = () => {
         setUser(!user)
@@ -17,7 +17,7 @@ function Navbar({getRandomMovie}) {
         let movieID = Math.ceil(Math.random()*999999);
         let movie = await axios.get(`https://api.themoviedb.org/3/movie/${movieID}?api_key=96fdc416520d2dd5b75c1c82c854e506`)
         let similarMovie = await axios.get(`https://api.themoviedb.org/3/movie/${movieID}/similar?api_key=96fdc416520d2dd5b75c1c82c854e506`)
-
+        console.log(movie)
         console.log(similarMovie)
         //AXIOS FAILS WITH 404 ERROR. UNSURE HOW TO FIX.
     }
@@ -37,9 +37,6 @@ function Navbar({getRandomMovie}) {
                     </div>
                     
                 </div>
-                
-                
-                
                 {user &&(
                 <div>
                     <Link to="/movie" className=''>

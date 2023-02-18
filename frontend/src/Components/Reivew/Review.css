@@ -12,27 +12,67 @@
     padding: 20px;
 }
 
-.padded{
-    padding: 10px;
-}
-.review-hearts{
-    padding: 1%;
-    margin: 10px;
+.padtop{
+    padding-top: 1.5em;
 }
 
-.review-account{
+.padright{
+    padding-right: 1.5em;
+}
+
+.padleft{
+    padding-left: 1.5em;
+}
+
+.hearts{
+    max-width: 140px;
+    min-width: 130px;
+    align-self: flex-start;
+}
+
+.padtop{
+    padding-top: 20px;
+}
+
+.review-user-info{
+    cursor: pointer;
+    /* padding: 5px;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: row; */
+    justify-content: space-around;
     align-items: center;
     align-content: center; 
 }
 
-.review-header {
+.review-ratings{
+    padding: 0 0 0 1.5em;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center; 
+}
+
+.reviewThumbs{
+    padding: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    justify-self: end;
+    align-items: center;
+    align-content: center; 
+}
+
+.thumbs {
+    display: flex;
+    align-items: center;
+}
+
+.border{
+    border: 1px solid black;
+}
+
+.review-header {
     border-bottom: 3px black dotted;
+    justify-content: space-between;
 }
 
 .user-pfp {
@@ -43,10 +83,17 @@
     border-radius: 50px;
 }
 
-.helpful-box {
+.flexRow{
     display: flex;
-    align-items: center;
-    /* justify-content: end; */
-    margin-left: 0;
-    padding: 20px;
+    flex-direction: row;
+}
+
+.flexCol{
+    display: flex;
+    flex-direction: column;
+}
+
+.review-hearts{
+    padding: 1%;
+    margin: 10px;
 }
