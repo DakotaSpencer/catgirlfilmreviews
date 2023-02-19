@@ -16,24 +16,25 @@ const Register = () => {
 
     return (
         <div className='pagediv'>
-            <form className='signup' onSubmit={handleSubmit}>
+            <div className='signup' onSubmit={handleSubmit}>
                 <h3>Sign Up</h3>
-                <label>Email:</label>
-                <input
-                    type='email'
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                />
-                <div className='p-2'></div>
-                <label>Password:</label>
-                <input
-                    type='password'
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                />
-                <button className='m-4' disabled={isLoading}>Sign Up</button>
-                {error && <div className='error'>{error}</div>}
-            </form>
+                <div className='spacecol'>
+                    <div>Email:</div>
+                    <input
+                        type='email'
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
+                    />
+                    <div>Password:</div>
+                    <input
+                        type='password'
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                    />
+                    <button disabled={isLoading}>Sign Up</button>
+                    {error && <div className='error'>{error}</div>}
+                </div>
+            </div>
         </div>
     )
 }
