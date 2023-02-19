@@ -25,7 +25,7 @@ const Login = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
                 />
-
+                <div className='p-2'></div>
                 <label>Password:</label>
                 <input
                     type='text'
@@ -33,7 +33,7 @@ const Login = () => {
                     value={password}
                 />
 
-                <button disabled={isLoading}>Log In</button>
+                <button className='m-4' disabled={isLoading}>Log In</button>
                 {error && <div className='error'>{error}</div>}
             </form>
         </div>

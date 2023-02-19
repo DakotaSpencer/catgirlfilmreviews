@@ -24,13 +24,14 @@ const Register = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     value={email}
                 />
+                <div className='p-2'></div>
                 <label>Password:</label>
                 <input
                     type='password'
                     onChange={(e) => setPassword(e.target.value)}
                     value={password}
                 />
-                <button disabled={isLoading}>Sign Up</button>
+                <button className='m-4' disabled={isLoading}>Sign Up</button>
                 {error && <div className='error'>{error}</div>}
             </form>
         </div>
