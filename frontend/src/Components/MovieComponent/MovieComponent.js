@@ -3,10 +3,6 @@ import "./moviecomponent.css"
 import {Link} from 'react-router-dom'
 
 const MovieComponent = ({movie}) => {
-    useEffect(() => {
-        console.log("Props passed into MovieComponent")
-        console.log(movie)
-    })
     if (movie?.id) {
         return (
             <div className='movie-container'>

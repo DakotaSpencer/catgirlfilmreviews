@@ -11,9 +11,28 @@ import Landing from './Landing/Landing';
 import Login from './Login/Login';
 import Register from './Register/Register';
 import { useAuthContext } from './hooks/useAuthContext';
+import MoviesList from './Components/MoviesList/MoviesList';
+import { useState, useEffect } from 'react';
 
 function App() {
   const {user} = useAuthContext()
+  const [random, setRandom] = useState(Math.floor(Math.random() * 25) + 1)
+  console.log(random)
+  useEffect(() => {
+    setRandom(Math.floor(Math.random() * 25) + 1)
+    checkRandom()
+  }, [])
+  
+
+  function checkRandom() {
+    if(moviedata.results[random] = random){
+      console.log("GOT EXISTING MOVIE")
+    }else{
+      console.log("MOVIE DOES NOT EXIST")
+      setRandom(Math.floor(Math.random() * 100000) + 1)
+    }
+  }
+
   return (
     <div className="main">
       <BrowserRouter>
@@ -28,6 +47,11 @@ function App() {
             <Route
               path='/movie'
               element={<SingleMovie movie={moviedata.results[0]}/>}
+              //movieID={:id} (This should NOT be done here and App.JS should be HEAVILY optimized. I.E. move the fetch requests into another component, but NOT IN APPJS)
+            />
+            <Route
+              path='/movielist'
+              element={<MoviesList/>}
               //movieID={:id} (This should NOT be done here and App.JS should be HEAVILY optimized. I.E. move the fetch requests into another component, but NOT IN APPJS)
             />
             <Route

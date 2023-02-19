@@ -5,8 +5,7 @@ import reviews from "../../src/reviewdummydata.json"
 import Review from '../Components/Reivew/Review'
 
 function SingleMovie({movie}) {
-
-    const date = new Date(movie.release_date)
+    const date = new Date(movie?.release_date)
     console.log(date)
 
     if (movie?.id) {
