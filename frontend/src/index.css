@@ -30,7 +30,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 400px;
   margin: 60px auto;
   padding: 20px;
-  background: #e2f5ff;
+  background: rgb(240, 217, 233);
   border-radius: 10px;
 }
 
