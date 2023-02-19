@@ -5,12 +5,15 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import SingleMovie from './SingleMovie/SingleMovie';
 import User from './User/User';
-import SearchResults from './SearchResults/SearchResults';
+import SearchResults from './Components/SearchResults/SearchResults';
 import moviedata from './moviedummydata.json'
 import Landing from './Landing/Landing';
+import Login from './Login/Login';
+import Register from './Register/Register';
+import { useAuthContext } from './hooks/useAuthContext';
 
 function App() {
-
+  const {user} = useAuthContext()
   return (
     <div className="main">
       <BrowserRouter>
@@ -36,6 +39,14 @@ function App() {
               path='/search'
               element={<SearchResults/>}
               //userID={:userid} 
+            />
+            <Route
+              path='/login'
+              element={<Login/>}
+            />
+            <Route
+              path='/register'
+              element={<Register/>}
             />
           </Routes>
         </div>

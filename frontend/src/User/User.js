@@ -5,7 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import moviedata from '../moviedummydata.json'
-import MoviesList from '../MoviesList/MoviesList';
+import MoviesList from '../Components/MoviesList/MoviesList';
 import reviews from "../../src/reviewdummydata.json"
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Review from '../Components/Reivew/Review'

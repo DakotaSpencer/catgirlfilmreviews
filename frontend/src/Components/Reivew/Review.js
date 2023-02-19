@@ -22,7 +22,7 @@ function Review({review}) {
                             <img className='user-pfp' src={user.pfp} alt=''/>
                         </div>
                         
-                        <div className='padleft' style={{fontSize:'18px'}}>
+                        <div className='padleft' style={{fontSize:'14px'}}>
                             {user.username}
                         </div>
                     </div>
@@ -34,11 +34,11 @@ function Review({review}) {
                     </div>
             </div>
             <div className='review-ratings flexRow'>
-                <div className='padright padtop hearts'>
+                <h2 className=''>{review.title}</h2>  
+                <div className='padright  hearts'>
                     <Hearts number={review.score}/>
                     <Remaininghearts number={5-review.score} />
                 </div>
-                <h2 className='padtop'>{review.title}</h2>     
             </div>
             <div className='review-body'>
                 <p>{review.body}</p>

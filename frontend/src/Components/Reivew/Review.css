@@ -46,7 +46,7 @@
 
 .review-ratings{
     padding: 0 0 0 1.5em;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     align-content: center; 
 }
@@ -71,7 +71,7 @@
 }
 
 .review-header {
-    border-bottom: 3px black dotted;
+    /* border-bottom: 3px black dotted; */
     justify-content: space-between;
 }
 

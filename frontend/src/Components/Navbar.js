@@ -6,7 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import './navbar.css'
 
 function Navbar({getRandomMovie}) {
-    const [user, setUser] = useState(true)
+    const [user, setUser] = useState(false)
     // const [movie,setMovie] = useState({})
 
     const handleClick = () => {
@@ -32,7 +32,7 @@ function Navbar({getRandomMovie}) {
                 <div className='topbar-center'>
                     <div className='search-bar'>
                         <SearchIcon className='search-icon'/>
-                        <input placeholder="Search..." type={Text} className="search-input"/>
+                        <input placeholder="Search..." type='text' className="search-input"/>
                         {/* SEARCH BAR IS NOT HOOKED UP TO FUNCTIONS, AND DOES NOTHING AT THE MOMENT */}
                     </div>
                     
@@ -67,10 +67,10 @@ function Navbar({getRandomMovie}) {
                             Movies
                         </button>
                     </Link>
-                    <Link to='' className='link'>
+                    <Link to='/login' className='link'>
                         <button onClick={handleClick} className='logout'>Log In</button>
                     </Link>
-                    <Link to='' className='link'>
+                    <Link to='/register' className='link'>
                         <button onClick={handleClick} className='logout'>Sign Up</button>
                     </Link>
                 </div>
