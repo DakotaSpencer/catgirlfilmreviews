@@ -5,6 +5,9 @@ import { useSignup } from '../hooks/useSignup'
 const Register = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [firstname, setFirstName] = useState('')
+    const [lastname, setLastName] = useState('')
+    const [address, setAddress] = useState('')
     const {signup, error, isLoading} = useSignup()
 
     const handleSubmit = async (e) => {
@@ -30,6 +33,24 @@ const Register = () => {
                         type='password'
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
+                    />
+
+                    <input
+                        type='text'
+                        onChange={(e) => setFirstName(e.target.value)}
+                        value={firstname}
+                    />
+
+                    <input
+                        type='text'
+                        onChange={(e) => setLastName(e.target.value)}
+                        value={lastname}
+                    />
+
+                    <input
+                        type='text'
+                        onChange={(e) => setAddress(e.target.value)}
+                        value={address}
                     />
                     <button disabled={isLoading}>Sign Up</button>
                     {error && <div className='error'>{error}</div>}
