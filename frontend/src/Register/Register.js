@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import { useSignup } from '../hooks/useSignup'
+import "./register.css"
 
 const Register = () => {
     const [email, setEmail] = useState('')
@@ -34,25 +35,25 @@ const Register = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
                     />
-
+                    <div>First Name:</div>
                     <input
                         type='text'
                         onChange={(e) => setFirstName(e.target.value)}
                         value={firstname}
                     />
-
+                    <div>Last Name:</div>
                     <input
                         type='text'
                         onChange={(e) => setLastName(e.target.value)}
                         value={lastname}
                     />
-
+                    <div>Address:</div>
                     <input
                         type='text'
                         onChange={(e) => setAddress(e.target.value)}
                         value={address}
                     />
-                    <button disabled={isLoading}>Sign Up</button>
+                    <button disabled={isLoading} className='margintop'>Sign Up</button>
                     {error && <div className='error'>{error}</div>}
                 </div>
             </div>

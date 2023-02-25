@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState} from 'react'
 import { useLogin } from '../hooks/useLogin'
+import "./login.css"
 
 const Login = () => {
     const [email, setEmail] = useState('')
@@ -31,7 +32,7 @@ const Login = () => {
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
                     />
-                    <button disabled={isLoading}>Sign Up</button>
+                    <button disabled={isLoading} className='margintop'>Sign Up</button>
                     {error && <div className='error'>{error}</div>}
                 </div>
             </div>
