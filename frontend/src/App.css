@@ -9,19 +9,22 @@
   padding-top: 100px;
 }
 
-button {
-  background-color: rgba(244, 234, 241, .5);
+button, .button {
+  background-color: rgba(244, 234, 241, 1);
   border: 2px #D68D97 solid;
-  color: #D68D97;
+  color: rgba(214,141,151,.5);
   padding: .5em;
   text-align: center;
   text-decoration: none;
   margin: 0 .75em;
   display: inline-block;
+  transition: color 300ms linear;
   border-radius: 10px;
 }
 
-button:hover {
+button:hover, .button:hover {
   cursor: pointer;
+  color: #D68D97;
   background-color: #F4EAF1;
+  transition: color 300ms linear;
 }

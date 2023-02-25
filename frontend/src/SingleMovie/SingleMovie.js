@@ -17,6 +17,7 @@ function SingleMovie({movie}) {
                         <div className='movie-img-box'><img id='single-movie-img' src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} /></div>
                         <div id="movie-details">
                             <div className='detail-block'><h2>{movie.title}</h2></div>
+                            {movie?.tagline ? <div className='top-border detail-block'><p>{movie.tagline}</p></div> : <></>}
                             <div className='top-border detail-block'><p>{movie.overview}</p></div>
                             <div className='top-border detail-block'><h3>Genres:</h3><ul>
                                 {movie.genres.map(genre => (
