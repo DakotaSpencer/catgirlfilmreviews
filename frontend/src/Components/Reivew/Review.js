@@ -3,6 +3,7 @@ import Hearts from './Hearts/Hearts'
 import "./Review.css"
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import ThumbDownIcon from '@mui/icons-material/ThumbDown';
+import Remaininghearts from './Hearts/RemainingHearts';
 
 function Review({review}) {
 
@@ -14,26 +15,30 @@ function Review({review}) {
 
     return (
         <div className='review'>
-            <div className='review-header'>
+            <div className='review-header flexRow'>
                     {/* TODO redirect to user with id */}
-                    <div className='review-account'>
-                        <img className='user-pfp' src={user.pfp} />
-                        <div className='padded'>
-                            <h2>{review.title}</h2>
-                            <div className=''>
-                                <a>{user.username}</a>
-                                {/* <div></div> */}
-                                <Hearts number={review.score}/>
-                            </div>
+                    <div className='review-user-info flexRow'>
+                        <div>
+                            <img className='user-pfp' src={user.pfp} alt=''/>
+                        </div>
+                        
+                        <div className='padleft' style={{fontSize:'14px'}}>
+                            {user.username}
                         </div>
                     </div>
-                    <div className='review-account'>
+                        
+                    <div className='reviewThumbs'>
                         {/* style to look like not garbage */}
-                        <code><button><ThumbUpIcon/></button></code><p>{review.thumbsup}</p>
-                        <code><button><ThumbDownIcon/></button></code><p>{review.thumbsdown}</p>
+                            <button className='thumbs'><ThumbUpIcon/></button><div className='p-0'>{review.thumbsup}</div>
+                            <button className='thumbs'><ThumbDownIcon/></button><div className='p-0'>{review.thumbsdown}</div>
                     </div>
-                    
-                
+            </div>
+            <div className='review-ratings flexRow'>
+                <h2 className=''>{review.title}</h2>  
+                <div className='padright  hearts'>
+                    <Hearts number={review.score}/>
+                    <Remaininghearts number={5-review.score} />
+                </div>
             </div>
             <div className='review-body'>
                 <p>{review.body}</p>

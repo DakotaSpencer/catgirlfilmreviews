@@ -6,8 +6,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import './navbar.css'
 
 function Navbar({getRandomMovie}) {
-    const [user, setUser] = useState(true)
-    const [movie,setMove] = useState({})
+    const [user, setUser] = useState(false)
+    // const [movie,setMovie] = useState({})
 
     const handleClick = () => {
         setUser(!user)
@@ -17,7 +17,7 @@ function Navbar({getRandomMovie}) {
         let movieID = Math.ceil(Math.random()*999999);
         let movie = await axios.get(`https://api.themoviedb.org/3/movie/${movieID}?api_key=96fdc416520d2dd5b75c1c82c854e506`)
         let similarMovie = await axios.get(`https://api.themoviedb.org/3/movie/${movieID}/similar?api_key=96fdc416520d2dd5b75c1c82c854e506`)
-
+        console.log(movie)
         console.log(similarMovie)
         //AXIOS FAILS WITH 404 ERROR. UNSURE HOW TO FIX.
     }
@@ -32,14 +32,11 @@ function Navbar({getRandomMovie}) {
                 <div className='topbar-center'>
                     <div className='search-bar'>
                         <SearchIcon className='search-icon'/>
-                        <input placeholder="Search..." type={Text} className="search-input"/>
+                        <input placeholder="Search..." type='text' className="search-input"/>
                         {/* SEARCH BAR IS NOT HOOKED UP TO FUNCTIONS, AND DOES NOTHING AT THE MOMENT */}
                     </div>
                     
                 </div>
-                
-                
-                
                 {user &&(
                 <div>
                     <Link to="/movie" className=''>
@@ -70,10 +67,10 @@ function Navbar({getRandomMovie}) {
                             Movies
                         </button>
                     </Link>
-                    <Link to='' className='link'>
+                    <Link to='/login' className='link'>
                         <button onClick={handleClick} className='logout'>Log In</button>
                     </Link>
-                    <Link to='' className='link'>
+                    <Link to='/register' className='link'>
                         <button onClick={handleClick} className='logout'>Sign Up</button>
                     </Link>
                 </div>

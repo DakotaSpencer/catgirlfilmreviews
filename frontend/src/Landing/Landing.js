@@ -1,5 +1,5 @@
 import React from 'react'
-import MoviesList from '../MoviesList/MoviesList';
+import MoviesList from '../Components/MoviesList/MoviesList';
 import moviedata from '../moviedummydata.json'
 import "./landing.css"
 

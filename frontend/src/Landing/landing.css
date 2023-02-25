@@ -35,6 +35,7 @@
 
 .landingcontent{
   z-index: 999;
-  /* background-color:aqua; */
+
   position: absolute;
+  
 }
