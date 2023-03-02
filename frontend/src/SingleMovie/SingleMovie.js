@@ -8,6 +8,10 @@ function SingleMovie({movie}) {
     const date = new Date(movie?.release_date)
     console.log(date)
 
+    //catgirlfilmreviews/movie/id
+    //grab the movie by the param id
+    //call https://localhost:7222/movie/{id} to get movie on load
+
     if (movie?.id) {
         return (
             <div className='pagediv'>
