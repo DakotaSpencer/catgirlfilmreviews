@@ -8,19 +8,29 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const [firstname, setFirstName] = useState('')
     const [lastname, setLastName] = useState('')
-    const [address, setAddress] = useState('')
+    const [city, setCity] = useState('')
+    const [street, setStreet] = useState('')
+    const [userstate, setUserState] = useState('')
+    const [zip, setZip] = useState('')
+    const [phone, setPhone] = useState('')
     const {signup, error, isLoading} = useSignup()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        await signup(email, password)
+        console.log("Called Register Form")
+        try{
+            await signup(email, city, street, userstate, zip, phone, password, firstname, lastname)
+        }catch(err){
+            console.log(err)
+        }
+        
+        //UserEmail, UserCity, UserStreet, UserState, UserZIP, UserPhone, UserPassword, UserFirstName, UserLastName. 
     }
 
 
     return (
         <div className='pagediv'>
-            <div className='signup' onSubmit={handleSubmit}>
+            <form className='signup' onSubmit={handleSubmit}>
                 <h3>Sign Up</h3>
                 <div className='spacecol'>
                     <div>Email:</div>
@@ -47,16 +57,40 @@ const Register = () => {
                         onChange={(e) => setLastName(e.target.value)}
                         value={lastname}
                     />
-                    <div>Address:</div>
+                    <div>City:</div>
                     <input
                         type='text'
-                        onChange={(e) => setAddress(e.target.value)}
-                        value={address}
+                        onChange={(e) => setCity(e.target.value)}
+                        value={city}
+                    />
+                    <div>State:</div>
+                    <input
+                        type='text'
+                        onChange={(e) => setUserState(e.target.value)}
+                        value={userstate}
+                    />
+                    <div>Street:</div>
+                    <input
+                        type='text'
+                        onChange={(e) => setStreet(e.target.value)}
+                        value={street}
+                    />
+                    <div>Zip Code:</div>
+                    <input
+                        type='text'
+                        onChange={(e) => setZip(e.target.value)}
+                        value={zip}
+                    />
+                    <div>Phone:</div>
+                    <input
+                        type='text'
+                        onChange={(e) => setPhone(e.target.value)}
+                        value={phone}
                     />
                     <button disabled={isLoading} className='margintop'>Sign Up</button>
                     {error && <div className='error'>{error}</div>}
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
