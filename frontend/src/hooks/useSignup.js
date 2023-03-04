@@ -1,3 +1,4 @@
+import { EmailSharp } from '@material-ui/icons';
 import {useState} from 'react'
 import {useAuthContext} from './useAuthContext'
 
@@ -14,7 +15,17 @@ export const useSignup = () => {
         const response = await fetch('/createuser', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email, city, street, userstate, zip, phone, password, firstname, lastname})
+            body: JSON.stringify({
+                "userEmail": email,
+                "userCity": city,
+                "userStreet": street,
+                "userState": userstate,
+                "userZip": zip,
+                "userPhone": phone,
+                "userPassword": password,
+                "userFirstName": firstname,
+                "userLastName": lastname
+            })
         })
         const json = await response.json()
 
