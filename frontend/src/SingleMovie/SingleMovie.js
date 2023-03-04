@@ -1,12 +1,26 @@
 import React from 'react'
 import ProductionCompany from './ProductionCompany/ProductionCompany'
 import "./SingleMovie.css"
-import reviews from "../../src/reviewdummydata.json"
 import Review from '../Components/Reivew/Review'
+import { useState,useEffect } from 'react'
+import axios from "axios"
 
 function SingleMovie({movie}) {
     const date = new Date(movie?.release_date)
     console.log(date)
+    const port = 7222;
+
+    const [reviews,setReviews] = useState([])
+
+    const getReviews = async (id) => {
+        const response = await axios.get(`https://localhost:${port}/movie/${id}/reviews/`)
+        console.log(response.data)
+        setReviews(response.data)
+    }
+
+    useEffect(() => {
+        getReviews(76543)
+    })
 
     //catgirlfilmreviews/movie/id
     //grab the movie by the param id
