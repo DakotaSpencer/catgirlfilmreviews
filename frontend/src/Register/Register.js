@@ -13,14 +13,20 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        await signup(email, password)
+        console.log("Called Register Form")
+        try{
+            await signup(email, password, firstname, lastname, address)
+        }catch(err){
+            console.log(err)
+        }
+        
+        //UserCity, UserStreet, UserState, UserZIP, UserPhone,
     }
 
 
     return (
         <div className='pagediv'>
-            <div className='signup' onSubmit={handleSubmit}>
+            <form className='signup' onSubmit={handleSubmit}>
                 <h3>Sign Up</h3>
                 <div className='spacecol'>
                     <div>Email:</div>
@@ -56,7 +62,7 @@ const Register = () => {
                     <button disabled={isLoading} className='margintop'>Sign Up</button>
                     {error && <div className='error'>{error}</div>}
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
