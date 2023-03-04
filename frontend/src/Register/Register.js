@@ -33,56 +33,65 @@ const Register = () => {
             <form className='signup' onSubmit={handleSubmit}>
                 <h3>Sign Up</h3>
                 <div className='spacecol'>
-                    <div>Email:</div>
+                    <label htmlFor='first-name'>First Name:</label>
                     <input
-                        type='email'
-                        onChange={(e) => setEmail(e.target.value)}
-                        value={email}
-                    />
-                    <div>Password:</div>
-                    <input
-                        type='password'
-                        onChange={(e) => setPassword(e.target.value)}
-                        value={password}
-                    />
-                    <div>First Name:</div>
-                    <input
+                        id='first-name'
                         type='text'
                         onChange={(e) => setFirstName(e.target.value)}
                         value={firstname}
                     />
-                    <div>Last Name:</div>
+                    <label htmlFor='last-name'>Last Name:</label>
                     <input
+                        id='last-name'
                         type='text'
                         onChange={(e) => setLastName(e.target.value)}
                         value={lastname}
                     />
-                    <div>City:</div>
+                    <label htmlFor='email'>Email:</label>
                     <input
-                        type='text'
-                        onChange={(e) => setCity(e.target.value)}
-                        value={city}
+                        id='email'
+                        type='email'
+                        onChange={(e) => setEmail(e.target.value)}
+                        value={email}
                     />
-                    <div>State:</div>
+                    <label htmlFor='password'>Password:</label>
                     <input
-                        type='text'
-                        onChange={(e) => setUserState(e.target.value)}
-                        value={userstate}
+                        id='password'
+                        type='password'
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
                     />
-                    <div>Street:</div>
+                    <label htmlFor='street'>Street:</label>
                     <input
+                        id='street'
                         type='text'
                         onChange={(e) => setStreet(e.target.value)}
                         value={street}
                     />
-                    <div>Zip Code:</div>
+                    <label htmlFor='city'>City:</label>
                     <input
+                        id='city'
+                        type='text'
+                        onChange={(e) => setCity(e.target.value)}
+                        value={city}
+                    />
+                    <label htmlFor='state'>State:</label>
+                    <input
+                        id='state'
+                        type='text'
+                        onChange={(e) => setUserState(e.target.value)}
+                        value={userstate}
+                    />
+                    <label htmlFor='zip'>Zip Code:</label>
+                    <input
+                        id='zip'
                         type='text'
                         onChange={(e) => setZip(e.target.value)}
                         value={zip}
                     />
-                    <div>Phone:</div>
+                    <label htmlFor='phone'>Phone:</label>
                     <input
+                        id='phone'
                         type='text'
                         onChange={(e) => setPhone(e.target.value)}
                         value={phone}
