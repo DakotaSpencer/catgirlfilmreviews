@@ -9,6 +9,7 @@ const Login = () => {
     const {login, error, isLoading} = useLogin()
 
     const handleSubmit = async (e) => {
+        console.log('Sttempting to login')
         e.preventDefault()
 
         await login(email, password)
@@ -17,7 +18,7 @@ const Login = () => {
 
     return (
         <div className='pagediv'>
-            <div className='login' onSubmit={handleSubmit}>
+            <form className='login' onSubmit={handleSubmit}>
                 <h3>Log In</h3>
                 <div className='spacecol'>
                     <div>Email:</div>
@@ -35,7 +36,7 @@ const Login = () => {
                     <button disabled={isLoading} className='margintop'>Sign Up</button>
                     {error && <div className='error'>{error}</div>}
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
