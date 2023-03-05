@@ -42,11 +42,6 @@ function Navbar({getRandomMovie}) {
                     <Link to="/movie" className=''>
                         <button onClick={getRandomMovie}>Random</button>
                     </Link>
-                    <Link to="/movie" className=''>
-                        <button>
-                            Movies
-                        </button>
-                    </Link>
                     <Link to='/user' className=''>               
                         <button>
                             Account
