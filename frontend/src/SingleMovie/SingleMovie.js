@@ -16,6 +16,7 @@ function SingleMovie({movie}) {
 
     const getReviews = async (id) => {
         let results = await axios.get(`/movie/${id}/reviews/`)
+        console.log("Reviews:")
         console.log(results.data)
         setReviews(results.data)
     }
@@ -38,8 +39,7 @@ function SingleMovie({movie}) {
     }
 
     useEffect(() => {
-        getReviews(76543)
-        getReviews(76543)
+        getReviews(550)
     },[])
 
     //catgirlfilmreviews/movie/id
