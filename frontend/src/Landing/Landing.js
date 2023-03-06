@@ -4,13 +4,20 @@ import moviedata from '../moviedummydata.json'
 import SearchIcon from '@mui/icons-material/Search';
 import { useState, useEffect, useRef } from 'react';
 import "./landing.css"
+import axios from 'axios'
 
 const Landing = () => {
   const [searchTerm, setSearchTerm] = useState('')
+  const [searchResults, setSearchResults] = useState([])
 
-  const search = (e) => {
-      e.preventDefault()
-      alert(searchTerm)
+  const search = async(e) => {
+    e.preventDefault()
+    let results = await axios.get(`/movie/search/${searchTerm}`)
+    //setSearchResults(results)
+    console.log("Search from Landing Page")
+    console.log(results)
+    setSearchTerm('')
+    //console.log(searchResults)
       //Search Database and return data for whatever was searched here
   }
 
