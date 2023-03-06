@@ -8,7 +8,6 @@ import axios from "axios"
 function SingleMovie({movie}) {
     const date = new Date(movie?.release_date)
     console.log(date)
-    const port = 7222;
 
     const [reviews,setReviews] = useState([])
     const [reviewTitle, setReviewTitle] = useState('')
