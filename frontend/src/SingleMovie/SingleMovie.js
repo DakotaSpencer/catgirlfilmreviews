@@ -11,16 +11,36 @@ function SingleMovie({movie}) {
     const port = 7222;
 
     const [reviews,setReviews] = useState([])
+    const [reviewTitle, setReviewTitle] = useState('')
+    const [reviewBody, setReviewBody] = useState('')
 
     const getReviews = async (id) => {
-        const response = await axios.get(`https://localhost:${port}/movie/${id}/reviews/`)
-        console.log(response.data)
-        setReviews(response.data)
+        let results = await axios.get(`/movie/${id}/reviews/`)
+        console.log(results.data)
+        setReviews(results.data)
+    }
+
+    const postReview = async(e) => {
+        e.preventDefault()
+        console.log("Review posted \nReview Title: ", reviewTitle, "\nReview Body: ", reviewBody)
+    }
+
+    const changeReviewTitle = event => {
+        event.preventDefault()
+        setReviewTitle(event.target.value)
+        console.log(reviewTitle)
+    }
+
+    const changeReviewBody = event => {
+        event.preventDefault()
+        setReviewBody(event.target.value)
+        console.log(reviewBody)
     }
 
     useEffect(() => {
         getReviews(76543)
-    })
+        getReviews(76543)
+    },[])
 
     //catgirlfilmreviews/movie/id
     //grab the movie by the param id
@@ -57,6 +77,11 @@ function SingleMovie({movie}) {
                     {reviews.map(review => (
                         <Review review={review} />
                     ))}
+                    <form onSubmit={postReview}>
+                        <input className='reviewTitle' placeholder='Title...' value={reviewTitle} onChange={changeReviewTitle}/>
+                        <input className='reviewBody' placeholder='Write a review...' value={reviewBody} onChange={changeReviewBody}/>
+                        <button type='submit'>Submit Review</button>
+                    </form>
                 </div>
                 
             </div>
