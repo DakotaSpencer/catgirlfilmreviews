@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import userdata from '../userdummydata.json'
 import './user.css'
 import Container from 'react-bootstrap/Container';
@@ -9,15 +9,21 @@ import MoviesList from '../Components/MoviesList/MoviesList';
 import reviews from "../../src/reviewdummydata.json"
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Review from '../Components/Reivew/Review'
+import {useParams} from 'react-router-dom'
 
-const User = () => {
-  const user = {
-    pfp: "https://townsquare.media/site/442/files/2018/11/shrek-reboot-oh-no.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89",
-    id: 0,
-    username: "ShrekLover526"
-}
-
+const User = ({user}) => {
+  const params = useParams();
+  const [userData, setUserData] = useState(null)
   useEffect(()=>{
+    if(user){
+      setUserData(user)
+      console.log(userData)
+    }else if(params.id){
+      setUserData(params.id)
+      console.log(userData)
+    }else{
+      console.log("user doesnt exist")
+    }
     console.log(moviedata)
   });
 
