@@ -4,19 +4,22 @@ import "./SingleMovie.css"
 import Review from '../Components/Reivew/Review'
 import { useState,useEffect } from 'react'
 import axios from "axios"
+import {useParams} from 'react-router-dom'
 
-function SingleMovie({movie}) {
-    const date = new Date(movie?.release_date)
-    console.log(date)
+function SingleMovie() {
+
+    const params = useParams();
 
     const [reviews,setReviews] = useState([])
     const [reviewTitle, setReviewTitle] = useState('')
     const [reviewBody, setReviewBody] = useState('')
+    const [movie,setMovie] = useState({})
+    const [date,setDate] = useState(null)
 
     const getReviews = async (id) => {
         let results = await axios.get(`/movie/${id}/reviews/`)
         console.log("Reviews:")
-        console.log(results.data)
+        console.log(results)
         setReviews(results.data)
     }
 
@@ -37,9 +40,20 @@ function SingleMovie({movie}) {
         console.log(reviewBody)
     }
 
+    const getMovie = async (id) => {
+        const response = await axios.get(`/movie/${id}/`)
+        if (response?.data?.id) {
+            setMovie(response.data)
+            const date = new Date(response.data?.release_date)
+            setDate(date)
+        }
+    }
+
     useEffect(() => {
-        getReviews(550)
-    },[])
+        getMovie(params.id)
+        getReviews(params.id)
+        console.log("ID",params.id)
+    },[params])
 
     //catgirlfilmreviews/movie/id
     //grab the movie by the param id
