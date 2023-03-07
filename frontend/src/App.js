@@ -45,11 +45,6 @@ function App() {
               //userID={:username} 
             />
             <Route
-              path='/movie'
-              element={<SingleMovie movie={moviedata.results[0]}/>}
-              //movieID={:id} (This should NOT be done here and App.JS should be HEAVILY optimized. I.E. move the fetch requests into another component, but NOT IN APPJS)
-            />
-            <Route
               path='/movie/:id'
               element={<SingleMovie/>}
               //movieID={:id} (This should NOT be done here and App.JS should be HEAVILY optimized. I.E. move the fetch requests into another component, but NOT IN APPJS)
