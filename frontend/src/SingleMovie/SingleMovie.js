@@ -15,6 +15,10 @@ function SingleMovie() {
     const [reviewBody, setReviewBody] = useState('')
     const [movie,setMovie] = useState({})
     const [date,setDate] = useState(null)
+    const [bodycharcount, setBodyCharCount] = useState(0);
+    const bodyMax = 5000;
+    const [titlecharcount, setTitleCharCount] = useState(0);
+    const titleMax = 100
 
     const getReviews = async (id) => {
         let results = await axios.get(`/movie/${id}/reviews/`)
@@ -29,15 +33,28 @@ function SingleMovie() {
     }
 
     const changeReviewTitle = event => {
-        event.preventDefault()
-        setReviewTitle(event.target.value)
-        console.log(reviewTitle)
+        if(event.target.value.length-1>=titleMax){
+            console.log(`Title cannot exceed ${titleMax} characters`)
+        }else{
+            setTitleCharCount(event.target.value.length)
+            event.preventDefault()
+            setReviewTitle(event.target.value)
+            console.log(reviewTitle)
+        }
+
     }
 
     const changeReviewBody = event => {
-        event.preventDefault()
-        setReviewBody(event.target.value)
-        console.log(reviewBody)
+        if(event.target.value.length-1>=bodyMax){
+            console.log(`Body cannot exceed ${bodyMax} characters`)
+        }
+        else{
+            
+            setBodyCharCount(event.target.value.length)
+            event.preventDefault()
+            setReviewBody(event.target.value)
+            console.log(reviewBody)
+        }
     }
 
     const getMovie = async (id) => {
@@ -92,7 +109,11 @@ function SingleMovie() {
                     ))}
                     <form onSubmit={postReview}>
                         <input className='reviewTitle' placeholder='Title...' value={reviewTitle} onChange={changeReviewTitle}/>
-                        <input className='reviewBody' placeholder='Write a review...' value={reviewBody} onChange={changeReviewBody}/>
+                        <p>{titlecharcount}/{titleMax}</p>
+                        <textarea className='reviewBody' placeholder='Write a review...' value={reviewBody} onChange={changeReviewBody}>
+                            
+                        </textarea>
+                        <p>{bodycharcount}/{bodyMax}</p>
                         <button type='submit'>Submit Review</button>
                     </form>
                 </div>
