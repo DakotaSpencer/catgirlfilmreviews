@@ -120,7 +120,7 @@ function SingleMovie() {
         return (
             <div className='pagediv'>
                 <div style={{position:'absolute', zIndex:'-1',  width:'100%', height:'1030px', backgroundColor:'#000000d6'}}>
-                    <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} style={{opacity:'25%',  width:'100%', height:'max-height'}}/>
+                    <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} style={{opacity:'25%',  width:'100%', height:'100%'}}/>
                 </div>
                 
                 <div className='details-container' style={{zIndex:'-1'}}>
