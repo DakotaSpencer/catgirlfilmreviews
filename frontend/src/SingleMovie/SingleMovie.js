@@ -59,6 +59,10 @@ function SingleMovie() {
         const reviewJSON = await response.json()
         console.log("Review JSON posted:")
         console.log(reviewJSON)
+        setReviewBody('')
+        setReviewTitle('')
+        setRating(0)
+        getReviews(params.id)
     }
 
     const changeReviewTitle = event => {
@@ -115,7 +119,11 @@ function SingleMovie() {
     if (movie?.id) {
         return (
             <div className='pagediv'>
-                <div className='details-container'>
+                <div style={{position:'absolute', zIndex:'-1',  width:'100%', height:'1030px', backgroundColor:'#000000d6'}}>
+                    <img src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} style={{opacity:'25%',  width:'100%', height:'max-height'}}/>
+                </div>
+                
+                <div className='details-container' style={{zIndex:'-1'}}>
                     <div id="single-movie-holder">
                         <div className='movie-img-box'><img id='single-movie-img' src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} /></div>
                         <div id="movie-details">
