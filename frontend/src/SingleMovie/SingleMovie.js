@@ -13,6 +13,7 @@ function SingleMovie() {
     const [reviews,setReviews] = useState([])
     const [reviewTitle, setReviewTitle] = useState('')
     const [reviewBody, setReviewBody] = useState('')
+    const [rating, setRating] = useState(0)
     const [movie,setMovie] = useState({})
     const [date,setDate] = useState(null)
     const [bodycharcount, setBodyCharCount] = useState(0);
@@ -55,6 +56,12 @@ function SingleMovie() {
             setReviewBody(event.target.value)
             console.log(reviewBody)
         }
+    }
+
+    const changeRating = async event => {
+        event.preventDefault()
+        await setRating(event.target.value)
+        console.log(rating)
     }
 
     const getMovie = async (id) => {
@@ -107,17 +114,21 @@ function SingleMovie() {
                     {reviews.map(review => (
                         <Review review={review} />
                     ))}
-                    <form onSubmit={postReview}>
-                        <input className='reviewTitle' placeholder='Title...' value={reviewTitle} onChange={changeReviewTitle}/>
-                        <p>{titlecharcount}/{titleMax}</p>
-                        <textarea className='reviewBody' placeholder='Write a review...' value={reviewBody} onChange={changeReviewBody}>
-                            
-                        </textarea>
-                        <p>{bodycharcount}/{bodyMax}</p>
-                        <button type='submit'>Submit Review</button>
-                    </form>
+                    <div className='pagediv'>
+                        <form onSubmit={postReview} className='login'>
+                            <h1 style={{color:"black"}}>Post a Review:</h1>
+                            <div className='spacecol'>
+                                <input className='reviewTitle' placeholder='Title...' value={reviewTitle} onChange={changeReviewTitle}/>
+                                <p>{titlecharcount}/{titleMax}</p>
+                                <textarea className='reviewBody' placeholder='Write a review...' value={reviewBody} onChange={changeReviewBody}>
+                                </textarea>
+                                <p>{bodycharcount}/{bodyMax}</p>
+                                <p>Rating: <input type={"number"} placeholder="0" value={rating} min={0} max={5} onChange={changeRating}/></p>
+                                <button type='submit' className='margintop'>Submit Review</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                
             </div>
         )
     }
