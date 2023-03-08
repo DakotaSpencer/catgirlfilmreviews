@@ -5,9 +5,10 @@ import Review from '../Components/Reivew/Review'
 import { useState,useEffect } from 'react'
 import axios from "axios"
 import {useParams} from 'react-router-dom'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 function SingleMovie() {
-
+    const {user} = useAuthContext()
     const params = useParams();
 
     const [reviews,setReviews] = useState([])
@@ -30,7 +31,34 @@ function SingleMovie() {
 
     const postReview = async(e) => {
         e.preventDefault()
-        console.log("Review posted \nReview Title: ", reviewTitle, "\nReview Body: ", reviewBody)
+        console.log("Current User ID:")
+        console.log(user)
+        //review post takes in reviewuserid, (datetime) reviewtime, (int) reviewmovieid, reviewbody, reviewtitle, (int) reviewrating
+        // ReviewUserId
+        // ReviewTime
+        // ReviewMovieId
+        // ReviewBody
+        // ReviewTitle
+        // ReviewRating
+        let currentTime = new Date().getTime()
+        let currentDate = new Date().getDate()
+        let timestamp = currentDate + " at " + currentTime
+
+        const response = await fetch('/createreview', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                "ReviewUserId": user, 
+                "ReviewMovieId": params.id,
+                "ReviewBody": reviewBody,
+                "ReviewTitle": reviewTitle,
+                "ReviewRating": rating
+            })
+        })
+
+        const reviewJSON = await response.json()
+        console.log("Review JSON posted:")
+        console.log(reviewJSON)
     }
 
     const changeReviewTitle = event => {
@@ -77,6 +105,7 @@ function SingleMovie() {
         getMovie(params.id)
         getReviews(params.id)
         console.log("ID",params.id)
+        console.log(user)
     },[params])
 
     //catgirlfilmreviews/movie/id
