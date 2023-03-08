@@ -5,16 +5,22 @@ import Review from '../Components/Reivew/Review'
 import { useState,useEffect } from 'react'
 import axios from "axios"
 import {useParams} from 'react-router-dom'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 function SingleMovie() {
-
+    const {user} = useAuthContext()
     const params = useParams();
 
     const [reviews,setReviews] = useState([])
     const [reviewTitle, setReviewTitle] = useState('')
     const [reviewBody, setReviewBody] = useState('')
+    const [rating, setRating] = useState(0)
     const [movie,setMovie] = useState({})
     const [date,setDate] = useState(null)
+    const [bodycharcount, setBodyCharCount] = useState(0);
+    const bodyMax = 5000;
+    const [titlecharcount, setTitleCharCount] = useState(0);
+    const titleMax = 100
 
     const getReviews = async (id) => {
         let results = await axios.get(`/movie/${id}/reviews/`)
@@ -25,19 +31,65 @@ function SingleMovie() {
 
     const postReview = async(e) => {
         e.preventDefault()
-        console.log("Review posted \nReview Title: ", reviewTitle, "\nReview Body: ", reviewBody)
+        console.log("Current User ID:")
+        console.log(user)
+        //review post takes in reviewuserid, (datetime) reviewtime, (int) reviewmovieid, reviewbody, reviewtitle, (int) reviewrating
+        // ReviewUserId
+        // ReviewTime
+        // ReviewMovieId
+        // ReviewBody
+        // ReviewTitle
+        // ReviewRating
+        let currentTime = new Date().getTime()
+        let currentDate = new Date().getDate()
+        let timestamp = currentDate + " at " + currentTime
+
+        const response = await fetch('/createreview', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                "ReviewUserId": user, 
+                "ReviewMovieId": params.id,
+                "ReviewBody": reviewBody,
+                "ReviewTitle": reviewTitle,
+                "ReviewRating": rating
+            })
+        })
+
+        const reviewJSON = await response.json()
+        console.log("Review JSON posted:")
+        console.log(reviewJSON)
     }
 
     const changeReviewTitle = event => {
-        event.preventDefault()
-        setReviewTitle(event.target.value)
-        console.log(reviewTitle)
+        if(event.target.value.length-1>=titleMax){
+            console.log(`Title cannot exceed ${titleMax} characters`)
+        }else{
+            setTitleCharCount(event.target.value.length)
+            event.preventDefault()
+            setReviewTitle(event.target.value)
+            console.log(reviewTitle)
+        }
+
     }
 
     const changeReviewBody = event => {
+        if(event.target.value.length-1>=bodyMax){
+            console.log(`Body cannot exceed ${bodyMax} characters`)
+        }
+        else{
+            
+            setBodyCharCount(event.target.value.length)
+            event.preventDefault()
+            setReviewBody(event.target.value)
+            console.log(reviewBody)
+        }
+    }
+
+    const changeRating = async event => {
         event.preventDefault()
-        setReviewBody(event.target.value)
-        console.log(reviewBody)
+        await setRating(event.target.value)
+        console.log(rating)
     }
 
     const getMovie = async (id) => {
@@ -53,6 +105,7 @@ function SingleMovie() {
         getMovie(params.id)
         getReviews(params.id)
         console.log("ID",params.id)
+        console.log(user)
     },[params])
 
     //catgirlfilmreviews/movie/id
@@ -90,13 +143,21 @@ function SingleMovie() {
                     {reviews.map(review => (
                         <Review review={review} />
                     ))}
-                    <form onSubmit={postReview}>
-                        <input className='reviewTitle' placeholder='Title...' value={reviewTitle} onChange={changeReviewTitle}/>
-                        <input className='reviewBody' placeholder='Write a review...' value={reviewBody} onChange={changeReviewBody}/>
-                        <button type='submit'>Submit Review</button>
-                    </form>
+                    <div className='pagediv'>
+                        <form onSubmit={postReview} className='login'>
+                            <h1 style={{color:"black"}}>Post a Review:</h1>
+                            <div className='spacecol'>
+                                <input className='reviewTitle' placeholder='Title...' value={reviewTitle} onChange={changeReviewTitle}/>
+                                <p>{titlecharcount}/{titleMax}</p>
+                                <textarea className='reviewBody' placeholder='Write a review...' value={reviewBody} onChange={changeReviewBody}>
+                                </textarea>
+                                <p>{bodycharcount}/{bodyMax}</p>
+                                <p>Rating: <input type={"number"} placeholder="0" value={rating} min={0} max={5} onChange={changeRating}/></p>
+                                <button type='submit' className='margintop'>Submit Review</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                
             </div>
         )
     }

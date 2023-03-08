@@ -7,12 +7,23 @@ const Login = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const {login, error, isLoading} = useLogin()
+    const [errmsg, setErrmsg] = useState('');
+    const emailregex = RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g)
+    const passwordregex = RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm)
 
     const handleSubmit = async (e) => {
         console.log('Sttempting to login')
         e.preventDefault()
-
-        await login(email, password)
+        try{
+            if(!passwordregex.test(password) || !emailregex.test(email)){
+                setErrmsg(`Email or password is incorrect`)
+                console.log(errmsg)
+            }
+            else(setErrmsg(""))
+            await login(email, password)
+        }catch(err){
+            console.log(err)
+        }
     }
 
 
@@ -23,7 +34,7 @@ const Login = () => {
                 <div className='spacecol'>
                     <div>Email:</div>
                     <input
-                        type='email'
+                        type='text'
                         onChange={(e) => setEmail(e.target.value)}
                         value={email}
                     />
@@ -34,7 +45,7 @@ const Login = () => {
                         value={password}
                     />
                     <button disabled={isLoading} className='margintop'>Sign Up</button>
-                    {error && <div className='error'>{error}</div>}
+                    {errmsg && <div className='error'>{errmsg}</div>}
                 </div>
             </form>
         </div>
