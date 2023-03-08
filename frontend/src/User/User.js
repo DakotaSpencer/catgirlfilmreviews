@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import userdata from '../userdummydata.json'
 import './user.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -15,15 +14,18 @@ const User = ({user}) => {
   const params = useParams();
   const [userData, setUserData] = useState(null)
   useEffect(()=>{
-    if(user){
-      setUserData(user)
-      console.log(userData)
-    }else if(params.id){
-      setUserData(params.id)
-      console.log(userData)
-    }else{
-      console.log("user doesnt exist")
+    async function setDataOnLoad(){
+      if(user){
+        await setUserData(user.user)
+        console.log(userData)
+      }else if(params.id){
+        await setUserData(params.id)
+        console.log(userData)
+      }else{
+        console.log("user doesnt exist")
+      }
     }
+    setDataOnLoad()
     console.log(moviedata)
   });
 
@@ -42,10 +44,10 @@ const User = ({user}) => {
                   <p style={{fontSize:'18px'}} className='m-2'>{user.username}</p>
                 </div>
               <div className='detail-block'>
-                <div><LocationOnIcon/>{userdata[0].location}</div>
+                <div><LocationOnIcon/>{user[0].location}</div>
               </div>
               <div className='detail-block'>
-                <p>{userdata[0].bio}</p>
+                <p>{user[0].bio}</p>
               </div>
             </div>
             <div className='col-4 userButton text-center rounded'>
