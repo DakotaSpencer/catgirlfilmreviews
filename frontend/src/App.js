@@ -60,7 +60,7 @@ function App() {
               //userID={:username} 
             />
             <Route
-              path='/search'
+              path='/search/:query'
               element={<SearchResults/>}
               //userID={:userid} 
             />

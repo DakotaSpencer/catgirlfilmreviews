@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { useState, useEffect, useRef } from 'react';
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import SearchIcon from '@mui/icons-material/Search';
 import './navbar.css'
 
@@ -17,6 +17,8 @@ function Navbar({getRandomMovie}) {
         setUser(!user)
     }
 
+    const navigate = useNavigate()
+
 
     const search = async(e) => {
         e.preventDefault()
@@ -26,6 +28,7 @@ function Navbar({getRandomMovie}) {
         console.log(results.data)
         console.log(searchResults)
         setSearchTerm('')
+        navigate(`/search/${searchTerm}`)
         //Search Database and return data for whatever was searched here
     }
 
@@ -81,7 +84,7 @@ function Navbar({getRandomMovie}) {
                 )}
                 {!user && (
                 <div>
-                    <Link to="/movie" className=''>
+                    <Link to={`/movie/${Math.ceil(Math.random()*999999)}`} className=''>
                         <button onClick={getRandomMovie}>Random</button>
                     </Link>
                     <Link to='/login' className='link'>
